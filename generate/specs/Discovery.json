@@ -1,0 +1,112 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "eToro Discovery API",
+    "version": "1.0",
+    "description": "The discovery API allows you to discover customers in the eToro network. It is important to note that only customers who have opted-in for discovery will be shown by this API"
+  },
+  "host": "api.etoro.com",
+  "basePath": "/Discover/V1",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "apiKeyHeader": {
+      "type": "apiKey",
+      "name": "Ocp-Apim-Subscription-Key",
+      "in": "header"
+    },
+    "apiKeyQuery": {
+      "type": "apiKey",
+      "name": "subscription-key",
+      "in": "query"
+    }
+  },
+  "security": [
+    {
+      "apiKeyHeader": []
+    },
+    {
+      "apiKeyQuery": []
+    }
+  ],
+  "paths": {
+    "/Search": {
+      "get": {
+        "description": "The search API allows you to filter customers according to periodic aggregate data. For a full explanation on the mechanics of filtering, ordering and paging, see <a href=\"/discovery-filtering\">this blog post</a>",
+        "operationId": "getSearch",
+        "summary": "Search",
+        "parameters": [
+          {
+            "name": "Period",
+            "in": "query",
+            "description": "The requested period",
+            "required": true,
+            "type": "string",
+            "default": "SixMonthsAgo",
+            "enum": [
+              "CurrMonth",
+              "CurrQuarter",
+              "CurrYear",
+              "LastYear",
+              "LastTwoYears",
+              "OneMonthAgo",
+              "TwoMonthsAgo",
+              "ThreeMonthsAgo",
+              "SixMonthsAgo",
+              "OneYearAgo"
+            ]
+          },
+          {
+            "name": "Page",
+            "in": "query",
+            "description": "The requested page number. Defaults to 1",
+            "type": "number"
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "description": "The requested page size",
+            "type": "number"
+          },
+          {
+            "name": "Sort",
+            "in": "query",
+            "description": "The requested sort. Sorting may be applied to multiple columns. For descending order a '-' prefix should be used.",
+            "type": "string"
+          },
+          {
+            "name": "Fields",
+            "in": "query",
+            "description": "A comma delimited list of fields which should be returned",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": null
+          }
+        }
+      }
+    },
+    "/MetaData": {
+      "get": {
+        "description": "The discovery metadata API returns the values which can be queried",
+        "operationId": "getMetadata",
+        "summary": "MetaData",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n .my-param {\n   padding-left: 15px;\n   font-weight: bold;\n}\n .my-row {\n  margin-bottom: 15px;\n  height: 3.5em;\n }\n</style>\n<br>The result is a vector of member descriptors which are returned by the search API. The following is the descriptor object<br>\n<table style=\"width: 100%;\">\n<tr class=\"my-row\"><td class=\"my-param\" style=\"width: 25%;\"><b>Name</b></td><td style=\"width: 8.3%;\">string</td><td>The member name. The member will be part of the returned object in the search API, and will be used for filtering and ordering the results in the API</td></tr>\n\n<tr class=\"my-row\"><td class=\"my-param\" >Display Name</td><td>string</td><td>A human friendly name </td></tr>\n\n<tr class=\"my-row\"><td class=\"my-param\" >Description</td><td>string</td><td>A description of the member</td></tr>\n\n<tr class=\"my-row\"><td class=\"my-param\" >Type</td><td>string</td><td>The data type of the member. It may be on of the following: integer, number, string, datetime</td></tr>\n\n<tr class=\"my-row\"><td class=\"my-param\" >Group</td><td>string</td><td>The grouping of the member. The values may be: Demographics, Gain, Risk, copy, Trading and Engagement</td></tr>\n\n<tr class=\"my-row\"><td class=\"my-param\" >Operation</td><td>string</td><td>The filtering operation which is applicable for this operation. The operation determines the way filtering can be applied. The valid values are: None, Equality, MinMax and In</td></tr>\n\n</table>",
+            "examples": {
+              "application/json": "[\n  {\n    \"name\": \"UserName\",\n    \"displayName\": \"Username\",\n    \"description\": \"The username of the customer\",\n    \"type\": \"string\",\n    \"group\": \"Demographics\",\n    \"operation\": \"None\"\n  },\n  {\n    \"name\": \"WeeksSinceRegistration\",\n    \"displayName\": \"Weeks Since Registration\",\n    \"description\": \"Number of weeks since registration\",\n    \"type\": \"integer\",\n    \"group\": \"Demographics\",\n    \"operation\": \"MinMax\"\n  }\n]"
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

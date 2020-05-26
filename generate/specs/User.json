@@ -1,0 +1,835 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "User",
+    "version": "1.0",
+    "description": "The User API provides data on a user including trading statistics"
+  },
+  "host": "api.etoro.com",
+  "basePath": "/API/User/V1",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "apiKeyHeader": {
+      "type": "apiKey",
+      "name": "Ocp-Apim-Subscription-Key",
+      "in": "header"
+    },
+    "apiKeyQuery": {
+      "type": "apiKey",
+      "name": "subscription-key",
+      "in": "query"
+    }
+  },
+  "security": [
+    {
+      "apiKeyHeader": []
+    },
+    {
+      "apiKeyQuery": []
+    }
+  ],
+  "paths": {
+    "/{Username}/Gain": {
+      "get": {
+        "description": "This API retrieves the monthly and yearly gains of a user",
+        "operationId": "getGains",
+        "summary": "Monthly Gain",
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "path",
+            "description": "The username which we would like to get the gain information",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n   .my-row {\n      height: 2.5em;\n  }\n</style>\n<br><br>The API returns arrays of monthly and yearly gains for the full lifetime of a customer. The following members are returned in for each interval<br>\n<table style=\"width: 100%;\">\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Timestamp</b></td><td>The timestamp of the beginning of the interval. For monthly gains it will be the first of the month, and for yearly gains it will be the first of January</td></tr>\n<tr class=\"my-row\"><td><b>Gain</b></td><td>The gain percetnage of this interval. The numbers are in percetage points</td></tr>\n</table><br>",
+            "examples": {
+              "application/json": {
+                "monthly": [
+                  {
+                    "timestamp": "2016-06-01T00:00:00Z",
+                    "gain": 0.2
+                  },
+                  {
+                    "timestamp": "2016-07-01T00:00:00Z",
+                    "gain": 0.21
+                  }
+                ],
+                "yearly": [
+                  {
+                    "timestamp": "2016-01-01T00:00:00Z",
+                    "gain": 0.58
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{Username}/Info": {
+      "get": {
+        "description": "This API returns general information on a user",
+        "operationId": "getUserInfo",
+        "summary": "Info",
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "path",
+            "description": "The username which we would like to get the information",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n   .my-row {\n      height: 2.5em;\n  }\n</style>\n<br><br>The API returns information about a user in the system. If the user has opted-out of sharing his information, we will return an empty object<br>\n<table style=\"width: 100%;\">\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Username</b></td><td>The name of the user</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>First Name</b></td><td>The first name of the user. If the user has set himself to share this information, otherwise it will be empty</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Last Name</b></td><td>The last name of the user. If the user has set himself to share this information, otherwise it will be empty</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Languge</b></td><td>The user selected language in the platform</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Country ID</b></td><td>The internal country where the customer resides. The full list of countries is in the metadata <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784e9186361c811ccfdf537\">Countries API</a></td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>About</b></td><td>A short description on the user</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Media</b></td><td>An array of user avatars. Each avatar contains the following:<br><li>Transformation - The transformation done on the original uploaded image</li><li>Width - the width in pixels of the images which are resized</li><li>Height - the height in pixels of the images which are resized</li><li>URI - of the image</li></td></tr>\n</table><br>\n",
+            "examples": {
+              "application/json": {
+                "userName": "LeTraderNo1",
+                "firstName": "Le",
+                "lastName": "Trader",
+                "language": "en-GB",
+                "countryId": 250,
+                "about": "Important disclosure â€“ Iâ€™m an Employee of eToro Group; Iâ€™m trading independently in my own account, for my own educational and commercial purposes.\nI have no unique knowledge or advantage on any other traders in the platform. eToro Group Limited does not and will not have any responsibility to any loses or trading decisions made by imitating or following me",
+                "media": [
+                  {
+                    "transformation": "Original",
+                    "width": 0.0,
+                    "height": 0.0,
+                    "uri": "https://etoro-cdn.etorostatic.com/avatars/original/2608398.jpg"
+                  },
+                  {
+                    "transformation": "Resized",
+                    "width": 150.0,
+                    "height": 150.0,
+                    "uri": "https://etoro-cdn.etorostatic.com/avatars/150X150/2608398.jpg"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{Username}/RiskScore/History": {
+      "get": {
+        "description": "This API retrieves the historical risk score of a customer",
+        "operationId": "getRiskHistory",
+        "summary": "RiskScore/History",
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "path",
+            "description": "The username which we would like to get the risk score information",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "MinDate",
+            "in": "query",
+            "description": "The minimum date to return information",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n   .my-row {\n      height: 2.5em;\n  }\n</style>\n<br><br>The API returns an array of periodic risk items. Each item contains the following<br>\n<table style=\"width: 100%;\">\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Timestamp</b></td><td>The timestamp at the beginning of the interval</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Risk Score</b></td><td>The average risk score for the interval</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Min Risk Score</b></td><td>The minimum risk score in this period according to the aggregation (monthly or daily)</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Max Risk Score</b></td><td>The maximum risk score in this period according to the aggregation (monthly or daily)</td></tr>\n</table>\n<br>",
+            "examples": {
+              "application/json": "[\n  {\n    \"timestamp\": \"2016-05-01T00:00:00Z\",\n    \"riskScore\": 1,\n    \"minRiskScore\": 1,\n    \"maxRiskScore\": 1\n  },\n  {\n    \"timestamp\": \"2016-06-01T00:00:00Z\",\n    \"riskScore\": 1,\n    \"minRiskScore\": 1,\n    \"maxRiskScore\": 2\n  },\n  {\n    \"timestamp\": \"2016-07-01T00:00:00Z\",\n    \"riskScore\": 1,\n    \"minRiskScore\": 1,\n    \"maxRiskScore\": 1\n  }\n]"
+            }
+          }
+        }
+      }
+    },
+    "/{Username}/RiskScore/Live/": {
+      "get": {
+        "description": "The Risk Score Live API call returns data on the live customer risk score",
+        "operationId": "getLiveRiskScore",
+        "summary": "RiskScore/Live",
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "path",
+            "description": "The username which we would like to get the risk score information",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n   .my-row {\n      height: 2.5em;\n  },\n .my-col-padded {\n    padding: 1em;\n }\n  .my-row :nth-child(2) {\n     padding: 1em !important;\n  }\n</style>\n<br>\nThe API will return the current risk score and an array of risk items, which are based on the current open trades. In case a customer does not have any open trade, the array will be empty<br>\n<table style=\"width: 100%;\" id=\"my-table\">\n<tr class=\"my-row\"><td style=\"width:25%;\"><b>Instrument ID</b></td><td class=\"my-col-padded\">Internal Instrument ID. For a full list of IDs see the <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784f6ee6361c811ccfdf53b\">Instruments API</a></td></tr>\n<tr class=\"my-row\"><td><b>Risk Contribution Percent</b></td><td>The contribution percentage of the current holding of this instrument in the current risk score</td></tr>\n<tr class=\"my-row\"><td><b>Investment Percent</b></td><td>The relative amount of funds which are invested in this instrument.<br>For example if currently you are investing $1,000 in all instruments and your investment in this instrument is $400 the investment percentage will be 40%</td></tr>\n<tr class=\"my-row\"><td><b>Exposure Percent</b></td><td>The relative amount of net exposure of this instrument in the total exposure. The exposure is based on the actual net amount of units which are held.<br>For example if you are investing $1,000 in an instrument with a single trade which is leveraged 1:100, then your total exposure will be $100,000. If you are holding two trades of $500 each with the same leverage, however one is on the buy side and the other is on the sell side - they cancel each other and the net exposure for this instrument will be 0</td></tr>\n</table>\n<br>",
+            "examples": {
+              "application/json": {
+                "riskScore": 1,
+                "contributers": [
+                  {
+                    "instrumentId": 1027,
+                    "riskContributionPct": 123.45,
+                    "investmentPct": 19.6,
+                    "exposurePct": 12.61
+                  },
+                  {
+                    "instrumentId": 27,
+                    "riskContributionPct": -49.38,
+                    "investmentPct": 4.76,
+                    "exposurePct": 25.71
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{Username}/Copiers/History": {
+      "get": {
+        "description": "The API returns the daily number of copiers of a user",
+        "operationId": "getCopiersHistory",
+        "summary": "Copiers/History",
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "path",
+            "description": "The username which I would like to get the copier history",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "MinDate",
+            "in": "query",
+            "description": "The minimum date for the response. The date should be formatted as YYYY/MM/DD",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n   .my-row {\n      height: 2.5em;\n  },\n .my-col-padded {\n    padding: 1em;\n }\n</style>\n<br>The API returns a time-series array of the daily number of copiers. The following is returned for each item\n<table width=100%;>\n<tr class=\"my-row\"><td style=\"width: 25%;\"><b>Timestamp</b></td><td style=\"width: 10%;\">datetime</td><td>The timestamp of the copiers sample<td></tr>\n<tr class=\"my-row\"><td><b>Copiers</b></td><td>integer</td><td>The number of daily copiers at 00:00 GMT</td></tr>\n</table><br>",
+            "examples": {
+              "application/json": "[\n  {\n    \"timestamp\": \"2016-07-03T00:00:00Z\",\n    \"copiers\": 1195\n  },\n  {\n    \"timestamp\": \"2016-07-04T00:00:00Z\",\n    \"copiers\": 1195\n  },\n  {\n    \"timestamp\": \"2016-07-05T00:00:00Z\",\n    \"copiers\": 1194\n  }\n]"
+            }
+          }
+        }
+      }
+    },
+    "/{Username}/Copiers/Live": {
+      "get": {
+        "description": "This API returns the number of live copiers by country",
+        "operationId": "getLiveCopiers",
+        "summary": "Copiers/Live",
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "path",
+            "description": "The username which we are trying to get the copiers",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n   .my-row {\n      height: 2.5em;\n  },\n .my-col-padded {\n    padding: 1em;\n }\n</style>\n<br>The API returns an array of country copiers item The following is returned for each item\n<table width=100%>\n<tr class=\"my-row\"><td style=\"width: 25%;\"><b>Country ID</b></td><td style=\"width: 8.3%;\">integer</td><td>The internal country id. For a complete list of country IDs, please refer to the metadata <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784e9186361c811ccfdf537\">Countries API </a><td></tr>\n<tr class=\"my-row\"><td><label>Copiers</label></td><td>integer</td><td>The number of copiers in that country</td><tr>\n</table>\n<br>",
+            "examples": {
+              "application/json": "[\n  {\n    \"countryId\": 243,\n    \"copiers\": 1\n  },\n  {\n    \"countryId\": 5,\n    \"copiers\": 2\n  }\n]"
+            }
+          }
+        }
+      }
+    },
+    "/{Username}/Trade/History/Aggregates": {
+      "get": {
+        "description": "The trading history aggregates retrieves aggregate data on the trading of a customer",
+        "operationId": "getAggregatesHistory",
+        "summary": "Trade/History/Aggregates",
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "path",
+            "description": "The username which we want to get the aggregate data on",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Period",
+            "in": "query",
+            "description": "The name of the period which we would like to get aggregate data on. The possible values are according to the period name in the metadata <a href=\"docs/services/5784e8446361c811ccfdf536/operations/578501516361c811ccfdf53c\">StatsPeriods API</a>",
+            "type": "string",
+            "default": "SixMonthsAgo",
+            "enum": [
+              "CurrMonth",
+              "CurrQuarter",
+              "CurrYear",
+              "LastYear",
+              "LastTwoYears",
+              "OneMonthAgo",
+              "TwoMonthsAgo",
+              "ThreeMonthsAgo",
+              "SixMonthsAgo"
+            ]
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "The full explanation on the returned values can be seen <a href=\"/trading-history-aggregates\">here</a>",
+            "examples": {
+              "application/json": {
+                "aggregates": {
+                  "userName": "LeTraderNo1",
+                  "gain": 0.59,
+                  "dailyGain": 0.01,
+                  "thisWeekGain": 0.01,
+                  "riskScore": 1,
+                  "maxDailyRiskScore": 2,
+                  "maxMonthlyRiskScore": 2,
+                  "aumTier": 0,
+                  "virtualCopiers": 0,
+                  "copiers": 0,
+                  "baseLineCopiers": 0,
+                  "dailyDD": -0.2,
+                  "weeklyDD": -0.59,
+                  "peakToValley": -0.76,
+                  "peakToValleyStart": "2016-01-01T00:00:00Z",
+                  "peakToValleyEnd": "2016-01-01T00:00:00Z",
+                  "profitableWeeksPct": 65.52,
+                  "profitableMonthsPct": 71.43,
+                  "velocity": 0.0013,
+                  "exposure": 100.0,
+                  "avgPosSize": 2.48,
+                  "activeWeeks": 29,
+                  "activeWeeksPct": 100.0,
+                  "daysSinceFirstActivity": 195,
+                  "daysSinceLastActivity": 0,
+                  "weeksSinceRegistration": 179,
+                  "totalTrades": 17,
+                  "winRatio": 47.06,
+                  "avgProfitPct": 6.52,
+                  "avgLossPct": -4.98,
+                  "avgHoldingMinutes": 360319.36
+                },
+                "assetBreakDown": [
+                  {
+                    "isCopyTrading": false,
+                    "instrumentId": 3017,
+                    "totalTrades": 4,
+                    "pctOfTrades": 23.53,
+                    "pctOfInvestment": 5.19,
+                    "winRatio": 100.0,
+                    "avgProfitPct": 0.0,
+                    "avgLossPct": 0.0,
+                    "avgHoldingMinutes": 59869.63
+                  },
+                  {
+                    "isCopyTrading": false,
+                    "instrumentId": 1027,
+                    "totalTrades": 2,
+                    "pctOfTrades": 11.76,
+                    "pctOfInvestment": 1.3,
+                    "winRatio": 100.0,
+                    "avgProfitPct": 0.0,
+                    "avgLossPct": 0.0,
+                    "avgHoldingMinutes": 718703.01
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{Username}/CopySimulation": {
+      "get": {
+        "description": "The copy simulation retrieves periodic copy simulation data including daily equity and optional daily asset allocation",
+        "operationId": "getCopySimulationData",
+        "summary": "CopySimulation",
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "path",
+            "description": "The username to simulate",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Period",
+            "in": "query",
+            "description": "The name of the period which we would like to get simulation data on. The possible values are according to the period name in the metadata <a href=\"docs/services/5784e8446361c811ccfdf536/operations/578501516361c811ccfdf53c\">StatsPeriods API</a>",
+            "required": true,
+            "type": "string",
+            "default": "SixMonthsAgo",
+            "enum": [
+              "CurrMonth",
+              "CurrQuarter",
+              "CurrYear",
+              "LastYear",
+              "LastTwoYears",
+              "OneMonthAgo",
+              "TwoMonthsAgo",
+              "ThreeMonthsAgo",
+              "SixMonthsAgo"
+            ]
+          },
+          {
+            "name": "AssetAllocation",
+            "in": "query",
+            "description": "Return information on daily asset allocation",
+            "type": "boolean"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "dailyValue": [
+                  {
+                    "timestamp": "2016-07-01T00:00:00Z",
+                    "credit": 10000.0,
+                    "investment": 0.0,
+                    "pnl": 0.0,
+                    "equity": 10000.0,
+                    "totalDividends": 0.0
+                  },
+                  {
+                    "timestamp": "2016-07-02T00:00:00Z",
+                    "credit": 9708.0,
+                    "investment": 292.0,
+                    "pnl": -29.16,
+                    "equity": 9970.85,
+                    "totalDividends": 0.0
+                  }
+                ],
+                "dailyAllocation": [
+                  {
+                    "timestamp": "2016-07-02T00:00:00Z",
+                    "allocation": [
+                      {
+                        "instrumentId": 1,
+                        "units": 8330.0,
+                        "investment": 292.0,
+                        "profit": -29.16
+                      }
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{Username}/DailyGain": {
+      "get": {
+        "description": "The Daily Gain API provides daily gains of users either as a time series or an aggregation",
+        "operationId": "getDailyGain",
+        "summary": "Daily Gain",
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "path",
+            "description": "The username which we would like to get the gain information",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Type",
+            "in": "query",
+            "description": "Type of data returned",
+            "required": true,
+            "type": "string",
+            "default": "Daily",
+            "enum": [
+              "Period",
+              "Daily"
+            ]
+          },
+          {
+            "name": "MinDate",
+            "in": "query",
+            "description": "The minimum date of the query. The date should be formatted as YYYY-MM-DD",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "MaxDate",
+            "in": "query",
+            "description": "The maximum date of the query. The date should be formatted as YYYY-MM-DD",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": null
+          }
+        }
+      }
+    },
+    "/Multiple/Info": {
+      "get": {
+        "description": "This API returns general information on a list of users",
+        "operationId": "getUsersInfo",
+        "summary": "Multiple Info",
+        "parameters": [
+          {
+            "name": "UserNames",
+            "in": "query",
+            "description": "A comma delimited list of usernames",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n   .my-row {\n      height: 2.5em;\n  }\n</style>\n<br><br>The API returns an array of information about users in the system. Each user has the following data<br>\n<table style=\"width: 100%;\">\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Username</b></td><td>The name of the user</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>First Name</b></td><td>The first name of the user. If the user has set himself to share this information, otherwise it will be empty</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Last Name</b></td><td>The last name of the user. If the user has set himself to share this information, otherwise it will be empty</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Languge</b></td><td>The user selected language in the platform</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Country ID</b></td><td>The internal country where the customer resides. The full list of countries is in the metadata <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784e9186361c811ccfdf537\">Countries API</a></td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>About</b></td><td>A short description on the user</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Media</b></td><td>An array of user avatars. Each avatar contains the following:<br><li>Transformation - The transformation done on the original uploaded image</li><li>Width - the width in pixels of the images which are resized</li><li>Height - the height in pixels of the images which are resized</li><li>URI - of the image</li></td></tr>\n</table><br>\n",
+            "examples": {
+              "application/json": "[\n{\n  \"userName\": \"LeTraderNo1\",\n  \"firstName\": \"Le\",\n  \"lastName\": \"Trader\",\n  \"language\": \"en-GB\",\n  \"countryId\": 250,\n  \"about\": \"Important disclosure â€“ Iâ€™m an Employee of eToro Group; Iâ€™m trading independently in my own account, for my own educational and commercial purposes.\\nI have no unique knowledge or advantage on any other traders in the platform. eToro Group Limited does not and will not have any responsibility to any loses or trading decisions made by imitating or following me\",\n  \"media\": [\n    {\n      \"transformation\": \"Original\",\n      \"width\": 0.0,\n      \"height\": 0.0,\n      \"uri\": \"https://etoro-cdn.etorostatic.com/avatars/original/2608398.jpg\"\n    },\n    {\n      \"transformation\": \"Resized\",\n      \"width\": 150.0,\n      \"height\": 150.0,\n      \"uri\": \"https://etoro-cdn.etorostatic.com/avatars/150X150/2608398.jpg\"\n    }\n  ]\n}\n]"
+            }
+          }
+        }
+      }
+    },
+    "/{Username}/Discovery": {
+      "get": {
+        "description": "The API returns discovery values for a specific user",
+        "operationId": "getUserDiscoveryData",
+        "summary": "Discovery",
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "path",
+            "description": "",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Period",
+            "in": "query",
+            "description": "Requested Period",
+            "type": "string",
+            "default": "SixMonthsAgo",
+            "enum": [
+              "CurrMonth",
+              "CurrQuarter",
+              "CurrYear",
+              "LastYear",
+              "LastTwoYears",
+              "OneMonthAgo",
+              "TwoMonthsAgo",
+              "ThreeMonthsAgo",
+              "SixMonthsAgo",
+              "OneYearAgo"
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Discovery Data"
+          }
+        }
+      }
+    },
+    "/Multiple/Discovery": {
+      "get": {
+        "description": "This API returns discovery values for multiple users",
+        "operationId": "getUsersDiscoveryData",
+        "summary": "Multiple Discovery",
+        "parameters": [
+          {
+            "name": "Usernames",
+            "in": "query",
+            "description": "A comma delimited list of usernames which I would like to get discovery data",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Period",
+            "in": "query",
+            "description": "Requested Period",
+            "required": true,
+            "type": "string",
+            "default": "SixMonthsAgo",
+            "enum": [
+              "CurrMonth",
+              "CurrQuarter",
+              "CurrYear",
+              "LastYear",
+              "LastTwoYears",
+              "OneMonthAgo",
+              "TwoMonthsAgo",
+              "ThreeMonthsAgo",
+              "SixMonthsAgo",
+              "OneYearAgo"
+            ]
+          },
+          {
+            "name": "Fields",
+            "in": "query",
+            "description": "A comma delimited list of fields which should be returned",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of customer discovery items.",
+            "examples": {
+              "application/json": "[\n{\nuserName: \"LeTraderNo1\",\nweeksSinceRegistration: 209,\ncountryId: 0,\naffiliateId: 3,\nisPopularInvestor: false,\nisFund: false,\ngain: 0.47,\ndailyGain: 0.05,\nthisWeekGain: 0.12,\nriskScore: 2,\nmaxDailyRiskScore: 2,\nmaxMonthlyRiskScore: 1,\ncopiers: 0,\ncopiedTrades: 0,\ncopyTradesPct: 0,\ncopyInvestmentPct: 0,\nbaseLineCopiers: 0,\ncopiersGain: 0,\naumTier: 0,\nvirtualCopiers: 0,\ntrades: 2,\ntopTradedInstrumentId: 0,\ntopTradedAssetId: 0,\nwinRatio: 0,\ndailyDD: -0.17,\nweeklyDD: -0.17,\npeakToValley: -0.17,\nprofitableWeeksPct: 66.67,\nprofitableMonthsPct: 100,\navgPosSize: 0.91,\nhighLeveragePct: 0,\nmediumLeveragePct: 0,\nlowLeveragePct: 100,\nfirstActivity: 33,\nlastActivity: 0,\nactiveWeeksPct: 33.33\n},\n{\nuserName: \"StrategicTrader\",\nweeksSinceRegistration: 126,\ncountryId: 124,\naffiliateId: 11,\nisPopularInvestor: true,\nisFund: false,\ngain: -11.21,\ndailyGain: -4.17,\nthisWeekGain: -4.05,\nriskScore: 5,\nmaxDailyRiskScore: 5,\nmaxMonthlyRiskScore: 5,\ncopiers: 149,\ncopiedTrades: 0,\ncopyTradesPct: 0,\ncopyInvestmentPct: 0,\nbaseLineCopiers: 159,\ncopiersGain: -6.29,\naumTier: 2,\nvirtualCopiers: 1094,\ntrades: 14,\ntopTradedInstrumentId: 1001,\ntopTradedAssetId: 5,\nwinRatio: 7.14,\ndailyDD: -3.25,\nweeklyDD: -5.46,\npeakToValley: -11.41,\nprofitableWeeksPct: 33.33,\nprofitableMonthsPct: 0,\navgPosSize: 1.31,\nhighLeveragePct: 0,\nmediumLeveragePct: 35.71,\nlowLeveragePct: 64.29,\nfirstActivity: 0,\nlastActivity: 0,\nactiveWeeksPct: 100\n}\n]\n[0]+-View sourceoptions"
+            }
+          }
+        }
+      }
+    },
+    "/{Username}/VisualPortfolio": {
+      "get": {
+        "operationId": "getUserVisualPortfolio",
+        "summary": "VisualPortfolio",
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "path",
+            "description": "The requested username",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "Top",
+            "in": "query",
+            "description": "The number of results to return",
+            "required": true,
+            "type": "number"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": null
+          }
+        }
+      }
+    },
+    "/{Username}/PortfolioSummary": {
+      "get": {
+        "description": "The portfolio summary aggregates the live portfolio of a user by manually traded assets and all the social trades he has open",
+        "operationId": "getUserPortfolioSummary",
+        "summary": "PortfolioSummary",
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "path",
+            "description": "The requested username",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "examples": {
+              "application/json": {
+                "creditPctRealized": 39.3879,
+                "creditPctUnrealized": 39.4182,
+                "positions": [
+                  {
+                    "instrumentId": 1004,
+                    "isBuy": true,
+                    "investmentPctRealized": 3.2891,
+                    "profitPct": 6.1565,
+                    "valuePctUnrealized": 3.4943
+                  },
+                  {
+                    "instrumentId": 1005,
+                    "isBuy": true,
+                    "investmentPctRealized": 1.9734,
+                    "profitPct": 0.4344,
+                    "valuePctUnrealized": 1.9836
+                  },
+                  {
+                    "instrumentId": 1035,
+                    "isBuy": true,
+                    "investmentPctRealized": 0.6578,
+                    "profitPct": -9.3764,
+                    "valuePctUnrealized": 0.5966
+                  },
+                  {
+                    "instrumentId": 1126,
+                    "isBuy": true,
+                    "investmentPctRealized": 1.9734,
+                    "profitPct": 4.5492,
+                    "valuePctUnrealized": 2.0649
+                  },
+                  {
+                    "instrumentId": 1135,
+                    "isBuy": true,
+                    "investmentPctRealized": 0.6578,
+                    "profitPct": -2.826,
+                    "valuePctUnrealized": 0.6397
+                  },
+                  {
+                    "instrumentId": 1137,
+                    "isBuy": true,
+                    "investmentPctRealized": 0.6578,
+                    "profitPct": 5.1273,
+                    "valuePctUnrealized": 0.6921
+                  },
+                  {
+                    "instrumentId": 1413,
+                    "isBuy": true,
+                    "investmentPctRealized": 0.6578,
+                    "profitPct": -5.7944,
+                    "valuePctUnrealized": 0.6202
+                  },
+                  {
+                    "instrumentId": 1567,
+                    "isBuy": true,
+                    "investmentPctRealized": 1.9734,
+                    "profitPct": -0.2613,
+                    "valuePctUnrealized": 1.9698
+                  },
+                  {
+                    "instrumentId": 1752,
+                    "isBuy": true,
+                    "investmentPctRealized": 1.3156,
+                    "profitPct": 6.4848,
+                    "valuePctUnrealized": 1.4021
+                  },
+                  {
+                    "instrumentId": 3017,
+                    "isBuy": true,
+                    "investmentPctRealized": 1.3156,
+                    "profitPct": 3.4285,
+                    "valuePctUnrealized": 1.3618
+                  },
+                  {
+                    "instrumentId": 100000,
+                    "isBuy": true,
+                    "investmentPctRealized": 3.2891,
+                    "profitPct": -15.3547,
+                    "valuePctUnrealized": 2.7862
+                  },
+                  {
+                    "instrumentId": 100001,
+                    "isBuy": true,
+                    "investmentPctRealized": 3.2891,
+                    "profitPct": 2.6382,
+                    "valuePctUnrealized": 3.3785
+                  }
+                ],
+                "socialTrades": [
+                  {
+                    "parentUsername": "financista",
+                    "investmentPctRealized": 1.5659,
+                    "profitPct": -13.9628,
+                    "valuePctUnrealized": 1.3372
+                  },
+                  {
+                    "parentUsername": "Livinproof",
+                    "investmentPctRealized": 1.2311,
+                    "profitPct": -3.2258,
+                    "valuePctUnrealized": 1.0937
+                  },
+                  {
+                    "parentUsername": "Upskill",
+                    "investmentPctRealized": 37.1674,
+                    "profitPct": -0.0904,
+                    "valuePctUnrealized": 37.1622
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{Username}/Social/Followers": {
+      "get": {
+        "description": "The API returns the number of followers of a user",
+        "operationId": "getUserFollowers",
+        "summary": "Social/Followers",
+        "parameters": [
+          {
+            "name": "Username",
+            "in": "path",
+            "description": "The username which we want to query",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "Number of followers",
+            "examples": {
+              "application/json": {
+                "followers": 954
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Multiple/VisualPortfolio": {
+      "get": {
+        "description": "This API returns the visual portfolio on a list of users",
+        "operationId": "getUsersVisualPortfolio",
+        "summary": "Multiple Visual Portfolio",
+        "parameters": [
+          {
+            "name": "UserNames",
+            "in": "query",
+            "description": "A comma delimited list of usernames",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n   .my-row {\n      height: 2.5em;\n  }\n</style>\n<br><br>The API returns an array of information about users in the system. Each user has the following data<br>\n<table style=\"width: 100%;\">\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Username</b></td><td>The name of the user</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>First Name</b></td><td>The first name of the user. If the user has set himself to share this information, otherwise it will be empty</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Last Name</b></td><td>The last name of the user. If the user has set himself to share this information, otherwise it will be empty</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Languge</b></td><td>The user selected language in the platform</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Country ID</b></td><td>The internal country where the customer resides. The full list of countries is in the metadata <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784e9186361c811ccfdf537\">Countries API</a></td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>About</b></td><td>A short description on the user</td></tr>\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Media</b></td><td>An array of user avatars. Each avatar contains the following:<br><li>Transformation - The transformation done on the original uploaded image</li><li>Width - the width in pixels of the images which are resized</li><li>Height - the height in pixels of the images which are resized</li><li>URI - of the image</li></td></tr>\n</table><br>\n",
+            "examples": {
+              "application/json": "[\n{\n  \"userName\": \"LeTraderNo1\",\n  \"firstName\": \"Le\",\n  \"lastName\": \"Trader\",\n  \"language\": \"en-GB\",\n  \"countryId\": 250,\n  \"about\": \"Important disclosure â€“ Iâ€™m an Employee of eToro Group; Iâ€™m trading independently in my own account, for my own educational and commercial purposes.\\nI have no unique knowledge or advantage on any other traders in the platform. eToro Group Limited does not and will not have any responsibility to any loses or trading decisions made by imitating or following me\",\n  \"media\": [\n    {\n      \"transformation\": \"Original\",\n      \"width\": 0.0,\n      \"height\": 0.0,\n      \"uri\": \"https://etoro-cdn.etorostatic.com/avatars/original/2608398.jpg\"\n    },\n    {\n      \"transformation\": \"Resized\",\n      \"width\": 150.0,\n      \"height\": 150.0,\n      \"uri\": \"https://etoro-cdn.etorostatic.com/avatars/150X150/2608398.jpg\"\n    }\n  ]\n}\n]"
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

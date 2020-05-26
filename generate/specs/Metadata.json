@@ -1,0 +1,170 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "eToro Metadata API",
+    "version": "1.0",
+    "description": "The metadata API provides basic meta data for the eToro system. The metadata is comprised of reference tables for all the other end-points in this API"
+  },
+  "host": "api.etoro.com",
+  "basePath": "/Metadata/V1",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "apiKeyHeader": {
+      "type": "apiKey",
+      "name": "Ocp-Apim-Subscription-Key",
+      "in": "header"
+    },
+    "apiKeyQuery": {
+      "type": "apiKey",
+      "name": "subscription-key",
+      "in": "query"
+    }
+  },
+  "security": [
+    {
+      "apiKeyHeader": []
+    },
+    {
+      "apiKeyQuery": []
+    }
+  ],
+  "paths": {
+    "/Countries": {
+      "get": {
+        "description": "<br>\nThe API returns a vector of all countries recognized in the system. Each member contains an internal country id, it's name and its abbreviation\n<br>",
+        "operationId": "getCountries",
+        "summary": "Countries",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<br>The result is a vector of counties. Each country will have the following members\n<br><br>\n<table style=\"width=100%;\">\n<tr><td style=\"width:25%;\"><b>Country ID</b></td><td style=\"width:8.3%\">integer</td><td>Internal country ID</td></tr>\n<tr><td><b>Name</b></td><td>string</td><td>Name of the country</td></tr>\n<tr><td><b>Abbreviation</b></td><td>string</td><td>Country two letter abbreviation according to the <a href=\"https://en.wikipedia.org/wiki/ISO_3166-1\">ISO 3166-1 </a>standard</td></tr>\n</table>\n<br>",
+            "examples": {
+              "application/json": "[\n  {\n    \"countryId\": 1,\n    \"name\": \"Afghanistan\",\n    \"abbreviation\": \"AF\"\n  },\n  {\n    \"countryId\": 2,\n    \"name\": \"Albania\",\n    \"abbreviation\": \"AL\"\n  },\n  {\n    \"countryId\": 3,\n    \"name\": \"Algeria\",\n    \"abbreviation\": \"DZ\"\n  }\n]"
+            }
+          }
+        }
+      }
+    },
+    "/Exchanges": {
+      "get": {
+        "description": "The API returns a vector of all the exchanges defined in the system. \n<br><br>\n<b>Note</b> for the sake of compatibility while retrieving instruments, we will return asset classes (FX/CFD, etc.) as an exchange item.\n<br>",
+        "operationId": "getExchanges",
+        "summary": "Exchanges",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<br>\nThe result is a vector of exchanges. Each exchange will have the following members:\n<br><br>\n<table style=\"width: 100%;\">\n<tr>\n<td style=\"width: 25%;\"><b>Exchange ID</b></td>\n<td style=\"width: 8.3%;\">integer</td>\n<td>The internal exchange ID</td>\n</tr>\n<tr>\n<td><b>Name</b></td>\n<td>string</td>\n<td>Name of the exchange</td>\n</tr>\n</table>\n<br>",
+            "examples": {
+              "application/json": "[\n   {\n      exchangeId: 1,\n      name: \"FX\"\n    },\n    {\n      exchangeId: 5,\n      name: \"NYSE\"\n    },\n]\n"
+            }
+          }
+        }
+      }
+    },
+    "/Sectors": {
+      "get": {
+        "description": "<br>\nThe API returns a vector of all the stock sectors in the system\n<br><br>",
+        "operationId": "getSectors",
+        "summary": "Sectors",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<br>The result is a vector of industry sectors. Each item contains the following members:\n<br>\n<table style=\"width: 100%;\">\n<tr><td style=\"width: 25%;\"><b>Sector ID</b></td><td style=\"width: 8.3%\">integer</td><td>Internal Sector ID</td></tr>\n<tr><td><b>Name</b></td><td>string</td><td>Name of the sector</td></tr>\n</table>\n<br>",
+            "examples": {
+              "application/json": "[\n   {\n      sectorId: 1,\n      name: \"Basic Materials\"\n   },\n   {\n      sectorId: 2,\n      name: \"Conglomerates\"\n   },\n]\n"
+            }
+          }
+        }
+      }
+    },
+    "/AssetClasses": {
+      "get": {
+        "description": "<br>\nThe API returns the asset classes of the system\n<br>",
+        "operationId": "getAssetClasses",
+        "summary": "AssetClasses",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n .my-param {\n   padding-left: 15px;\n}\n .my-row {\n  margin-bottom: 15px;\n }\n</style>\n<br>The result is a vector of asset classes. Each item contains the following members<br>\n<table style=\"width: 100%;\">\n<tr class=\"my-row\"><td class=\"my-param\" style=\"width: 25%;\"><b>Asset Class ID</b></td><td style=\"width: 8.3%;\">integer</td><td>The internal Asset Class ID</td></tr>\n<tr class=\"my-row\"><td class=\"my-param\"><b>Name</b></td><td>string</td><td>Name of the asset class</td></tr>\n</table>\n<br>",
+            "examples": {
+              "application/json": "[\n   {\n      assetClassId: 1,\n      name: \"Forex\"\n   },\n   {\n      assetClassId: 2,\n      name: \"Commodity\"\n   }\n]"
+            }
+          }
+        }
+      }
+    },
+    "/Instruments": {
+      "get": {
+        "description": "<br>The API returns the instruments which are defined in the system. <br>",
+        "operationId": "getInstruments",
+        "summary": "Instruments",
+        "parameters": [
+          {
+            "name": "InstrumentIds",
+            "in": "query",
+            "description": "Comma separated list of instrument IDs which will be retrieved. If this is omitted all the instruments which are defined in the system will be returned",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n   .my-row {\n      height: 2.5em;\n  }\n</style>\n<br><br>The API returns an array of instrument details. Each instrument contains the following<br>\n<table style=\"width: 100%;\">\n<tr class=\"my-row\"><td style=\"width:25%;\"><b>Instrument ID</b></td><td style=\"width: 8.3%\">integer</td><td>Internal Instrument ID</td></tr>\n<tr class=\"my-row\"><td><b>Name</b></td><td>string</td><td>The displayed name of the instrument</td></tr>\n<tr class=\"my-row\"><td><b>Asset Class ID</b></td><td>integer</td><td>The internal asset class ID. For the full list of the asset classes, see the <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784f5076361c811ccfdf53a\">Asset Classes</a> API</td></tr>\n<tr class=\"my-row\"><td><b>Exchange ID</b></td><td>integer</td><td>The internal exchange ID. For the full list of exchanges, see the <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784ec636361c811ccfdf538\">Exchanges</a> API</td></tr>\n<tr class=\"my-row\"><td><b>Sector ID</b></td><td>integer</td><td>The internal sector ID. For the full list of sectors, see the \n<a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784f0c26361c811ccfdf539\">Sectors</a> API</td></tr>\n<tr class=\"my-row\"><td><b>Ticker</b></td><td>string</td><td>The stock ticker in the exchange</td></tr>\n\n<tr class=\"my-row\"><td><b>Precision</b></td><td>integer</td><td>The number of decimal digits when presenting the price</td></tr>\n\n<tr class=\"my-row\"><td><b>Media</b></td><td>array</td><td><ul><li>Width - width of the image</li><li>Height - height of the image</li><li>URI - of the image</li></ul></td></tr>\n</table>\n<br>",
+            "examples": {
+              "application/json": "[   \n{      \n  instrumentId: 1001,      \n  name: \"Apple\",      \n  assetClassId: 5,      \n  exchangeId: 4,      \n  sectorId: 3,      \n  ticker: \"AAPL\",      \n  percision: 2,      \n  media: [         \n    {            \n      width: 35,            \n      height: 35,            \n      uri: \"https://etoro-cdn.etorostatic.com/market-avatars/aapl/35x35.png\"         \n   },       \n   {           \n     width: 50,           \n     height: 50,           \n     uri: \"https://etoro-cdn.etorostatic.com/market-avatars/aapl/50x50.png\"        \n   }      \n]]"
+            }
+          }
+        }
+      }
+    },
+    "/StatsPeriods": {
+      "get": {
+        "description": "The API returns the predefined periods used for aggregate data",
+        "operationId": "getStatsPeriods",
+        "summary": "StatsPeriods",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n   .my-row {\n      height: 2.5em;\n  }\n</style>\n<br>The API returns an array of periods. Each period contains the following<br>\n<table style=\"width: 100%;\">\n<tr class=\"my-row\"><td style=\"width: 25%;\"><b>Period</b></td><td style=\"width: 8.3%;\">string</td><td>The name of the period</td></tr>\n<tr class=\"my-row\"><td><b>Minimum Date</b></td><td>datetime</td><td>The starting date of this period</td></tr>\n</table>\n<br>\n",
+            "examples": {
+              "application/json": "[\n   {\n      period: \"CurrMonth\",\n      minDate: \"2016-07-01T00:00:00Z\"\n   },\n   {\n      period: \"CurrQuarter\",\n      minDate: \"2016-07-01T00:00:00Z\"\n   }\n]"
+            }
+          }
+        }
+      }
+    },
+    "/CandlePeriod": {
+      "get": {
+        "description": "The API returns the intervals in which you may retrieve historical price candles<br>",
+        "operationId": "getCandlePeriod",
+        "summary": "CandlePeriods",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n   .my-row {\n      height: 2.5em;\n  }\n</style>\n<br>The API returns an array of candle periods. Each period contains the following elements<br>\n<table style=\"width: 100%;\">\n<tr class=\"my-row\"><td style=\"width: 25%;\"><b>Candle Period ID</b></td><td style=\"width: 8.3%\">integer</td><td>The internal ID of the period</td></tr>\n<tr class=\"my-row\"><td><b>Name</b></td><td>string</td><td>The name of this period</td></tr>\n</table>\n<br>\n",
+            "examples": {
+              "application/json": "[\n   {\n      candlePeriodId: 1,\n      name: \"OneMinute\"\n   },\n   {\n      candlePeriodId: 2,\n      name: \"FiveMinutes\"\n   }\n]"
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}

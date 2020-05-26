@@ -1,0 +1,137 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "eToro Rates API",
+    "version": "1.0",
+    "description": "The Rates API provides eToro live and historical rates"
+  },
+  "host": "api.etoro.com",
+  "schemes": [
+    "https"
+  ],
+  "securityDefinitions": {
+    "apiKeyHeader": {
+      "type": "apiKey",
+      "name": "Ocp-Apim-Subscription-Key",
+      "in": "header"
+    },
+    "apiKeyQuery": {
+      "type": "apiKey",
+      "name": "subscription-key",
+      "in": "query"
+    }
+  },
+  "security": [
+    {
+      "apiKeyHeader": []
+    },
+    {
+      "apiKeyQuery": []
+    }
+  ],
+  "paths": {
+    "/Live": {
+      "get": {
+        "description": "This API returns live rates",
+        "operationId": "getLiveRates",
+        "summary": "Live",
+        "parameters": [
+          {
+            "name": "InstrumentIds",
+            "in": "query",
+            "description": "A comma delimited list of instrument ids. For the full list of instrument IDs refer to the <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784f6ee6361c811ccfdf53b\">Instruments API</a>",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n   .my-row {\n      height: 2.5em;\n  }\n</style>\n<br><br>The API returns an array of rates Each rates contains the following<br>\n<table style=\"width: 100%;\">\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Instrument ID</b></td><td>Internal Instrument ID. For a full list of IDs see the <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784f6ee6361c811ccfdf53b\">Instruments API</a></td></tr>\n<tr class=\"my-row\"><td><b>Bid</b></td><td>The current bid rate</td></tr>\n<tr class=\"my-row\"><td><b>Ask</b></td><td>The current ask rate</td></tr>\n<tr class=\"my-row\"><td><b>Last Update</b></td><td>The timestamp of the rate update. The timestamp is UTC </td></tr>\n<tr class=\"my-row\"><td><b>USD Conversion Bid</b></td><td>The conversion rate of the bid rate into USD</td></tr>\n<tr class=\"my-row\"><td><b>USD Conversion Ask</b></td><td>The conversion rate of the ask rate into USD</td></tr>\n</table>\n<br>",
+            "examples": {
+              "application/json": "[\n  {\n    \"instrumentId\": 1001,\n    \"bid\": 97.32,\n    \"ask\": 97.41,\n    \"lastUpdate\": \"2016-07-12T19:59:24.8336059Z\",\n    \"usdConversionBid\": 1.0,\n    \"usdConversionAsk\": 1.0\n  },\n  {\n    \"instrumentId\": 1,\n    \"bid\": 1.1047,\n    \"ask\": 1.105,\n    \"lastUpdate\": \"2016-07-13T07:34:31.4579532Z\",\n    \"usdConversionBid\": 1.0,\n    \"usdConversionAsk\": 1.0\n  }\n]"
+            }
+          }
+        }
+      }
+    },
+    "/History/Candles": {
+      "get": {
+        "description": "<br>The History Candles API retrieves historical candles per instrument",
+        "operationId": "getCandles",
+        "summary": "History/Candles",
+        "parameters": [
+          {
+            "name": "CandlePeriodId",
+            "in": "query",
+            "description": "The internal ID of the candle interval. For the full values see the metadata <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5785c91b6361c80d884cfce9\">Candle Periods API</a>",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "InstrumentID",
+            "in": "query",
+            "description": "The instrument ID which we want to retrieve the candles. For the full list of instruments see the metadata <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784f6ee6361c811ccfdf53b\">Instruments API</a>",
+            "required": true,
+            "type": "number"
+          },
+          {
+            "name": "Top",
+            "in": "query",
+            "description": "The number of candles to return. If omitted we will return 100 candles",
+            "type": "number"
+          },
+          {
+            "name": "Order",
+            "in": "query",
+            "description": "The order of the candles returned. If omitted it will be returned in a descending order",
+            "type": "string",
+            "default": "DESC",
+            "enum": [
+              "DESC"
+            ]
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n   .my-row {\n      height: 2.5em;\n  }\n</style>\n<br>The API will return an array of candles according to the query parameters. The following is the content of each candle:<br>\n<table style=\"width: 100%;\">\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Timestamp</b></td><td>The timestamp of the beginning of the candle</td></tr>\n<tr class=\"my-row\"><td><b>Open</b></td><td>Opening rate in this interval</td></tr>\n<tr class=\"my-row\"><td><b>High</b></td><td>The highest rate registered in this interval</td></tr>\n<tr class=\"my-row\"><td><b>Low</b></td><td>The lowest rate registered in this interval </td></tr>\n<tr class=\"my-row\"><td><b>Close</b></td><td>The closing rate in this interval</td></tr>\n</table>\n<br>",
+            "examples": {
+              "application/json": "[\n  {\n    \"timestamp\": \"2016-07-13T08:02:00Z\",\n    \"open\": 1.1043,\n    \"high\": 1.1046,\n    \"low\": 1.1043,\n    \"close\": 1.1043\n  },\n  {\n    \"timestamp\": \"2016-07-13T08:01:00Z\",\n    \"open\": 1.1043,\n    \"high\": 1.1043,\n    \"low\": 1.1041,\n    \"close\": 1.1041\n  }\n]"
+            }
+          }
+        }
+      }
+    },
+    "/History/ClosingRate": {
+      "get": {
+        "description": "<br>The Closing Rate API returns the closing rates on a daily, weekly and monthly basis.<br>\n<li><b>Daily</b> The daily closing rate is updated when daily trading starts. For instruments which are traded 24 hours, the end of day is 17:00 US Eastern Time</li>\n<li><b>Weekly</b> The weekly closing price is updated before the opening of the trading week on Sunday 21:00 UTC</li>\n<li><b>Monthly</b> The monthly closing price is updated on the 1st of each month </li>\n<br>",
+        "operationId": "getClosingRate",
+        "summary": "History/ClosingRate",
+        "parameters": [
+          {
+            "name": "InstrumentIds",
+            "in": "query",
+            "description": "A comma delimited list of instrument ids. For the full list of instrument IDs refer to the <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784f6ee6361c811ccfdf53b\">Instruments API</a>",
+            "type": "string"
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "<style>\n   .my-row {\n      height: 2.5em;\n  }\n</style>\n<br><br>The API returns an array of closing prices. Each element contains the following\n<br>\n<table style=\"width: 100%;\">\n<tr class=\"my-row\"><td style=\"width:20%;\"><b>Instrument ID</b></td><td>Internal Instrument ID. For a full list of IDs see the <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784f6ee6361c811ccfdf53b\">Instruments API</a></td></tr>\n<tr class=\"my-row\"><td><b>isMarketOpen</b></td><td>Is trading enabled now, or is the market closed</td></tr>\n<tr class=\"my-row\"><td><b>offialClosingRate</b></td><td>The official closing rate of the asset</td></tr>\n\n\n<tr class=\"my-row\"><td><b>Daily</b></td><td>The last daily closing rate. Contains the rate and the closing timestamp</td></tr>\n<tr class=\"my-row\"><td><b>Weekly</b></td><td>The last weekly closing rate. Contains the rate and the closing timestamp</td></tr>\n<tr class=\"my-row\"><td><b>Monthly</b></td><td>The last monthly closing rate. Contains the rate and the closing timestamp</td></tr>\n</table>",
+            "examples": {
+              "application/json": "[\n  {\n    \"instrumentId\": 1,\n     officialClosingRate: 1.0059,\n      IsMarketOpen: true,    \n     \"daily\": {\n      \"rate\": 1.1059,\n      \"timestamp\": \"2016-07-12T21:00:00Z\"\n    },\n    \"weekly\": {\n      \"rate\": 1.105,\n      \"timestamp\": \"2016-07-08T21:00:00Z\"\n    },\n    \"monthly\": {\n      \"rate\": 1.1105,\n      \"timestamp\": \"2016-06-30T21:00:00Z\"\n    }\n  },\n  {\n    \"instrumentId\": 2,\n    \"daily\": {\n      \"rate\": 1.3246,\n      \"timestamp\": \"2016-07-12T21:00:00Z\"\n    },\n    \"weekly\": {\n      \"rate\": 1.2952,\n      \"timestamp\": \"2016-07-08T21:00:00Z\"\n    },\n    \"monthly\": {\n      \"rate\": 1.3306,\n      \"timestamp\": \"2016-06-30T21:00:00Z\"\n    }\n  }\n]"
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": []
+}
