@@ -1,4 +1,4 @@
-# swagger_client.DefaultApi
+# etoro_api.DefaultApi
 
 All URIs are relative to *https://api.etoro.com/System/V1*
 
@@ -20,23 +20,23 @@ The auto-complete method allows you to create an \"auto-complete\" like widget w
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 prefix = 'prefix_example' # str | The search term you will be executing
 instrument_count = 1.2 # float | The number of instruments in the result set
 user_count = 1.2 # float | The number of users in the result set
@@ -82,23 +82,23 @@ The daily price change method shows the daily price change of the instruments in
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 sort = 'ASC' # str | The order of the response regarding the daily change (default to ASC)
 page = 1.2 # float | The current page. If omitted the default will be the first page (optional)
 page_size = 1.2 # float | The number of results in each page. If omitted, the page size will default to 20 (optional)
@@ -144,23 +144,23 @@ The Insights method provides an insight on the trends inside the eToro system
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 insight_type = 'insight_type_example' # str | What type of insight we wish to see
 instrument_ids = 'instrument_ids_example' # str | Comma delimited string containing instrument ids which will be explicitly returned (optional)
 
@@ -204,23 +204,23 @@ The Market Events method returns information on significant market events.
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 min_date = 'min_date_example' # str | Minimum date for events. In case it is omitted it will be 10 days (optional)
 max_date = 'max_date_example' # str | Maximum date for events. In case it is missing the current timestamp will be used (optional)
 page = 1.2 # float | The current page. If omitted the default will by 1 (optional)

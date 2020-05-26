@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import swagger_client
+import etoro_api
 from api.default_api import DefaultApi  # noqa: E501
-from swagger_client.rest import ApiException
+from etoro_api.rest import ApiException
 
 
 class TestDefaultApi(unittest.TestCase):

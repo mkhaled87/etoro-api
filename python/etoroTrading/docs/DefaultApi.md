@@ -1,4 +1,4 @@
-# swagger_client.DefaultApi
+# etoro_api.DefaultApi
 
 All URIs are relative to *https://api.etoro.com/API/Trading/V1*
 
@@ -32,23 +32,23 @@ The Create Exit Order, will create an exit order in the system
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 system = 'system_example' # str | The system type where the data is requested from
 body = NULL # object | The following is the structure of the body request
 
@@ -134,23 +134,23 @@ The Delete Exit Order, will delete an existing exit order from the system
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 system = 'system_example' # str | The system type where the data is requested from
 order_id = 1.2 # float | The exit order id
 
@@ -194,23 +194,23 @@ The Delete Entry Order allows cancellation of an entry order.
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 system = 'system_example' # str | The system type where the data is requested from
 order_id = 1.2 # float | The order id which we would like to delete
 body = NULL # object | The body defines which order type to delete
@@ -274,23 +274,23 @@ Account
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 
 try:
     # Account
@@ -328,23 +328,23 @@ Account<span></span>
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 subscription_key = 'subscription_key_example' # str | subscription key in url (optional)
 
 try:
@@ -386,23 +386,23 @@ Editing the trade allows changing the stop loss (rate + trailing property) and t
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 system = 'system_example' # str | The system which we will be using
 position_id = 1.2 # float | The position ID which we would like to modify
 
@@ -446,23 +446,23 @@ The Credit method returns the current credit in the user account <br><br> It is 
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 system = 'system_example' # str | The system type where the data is requested from
 
 try:
@@ -504,23 +504,23 @@ The Equity method returns the current equity in the user account <br><br> It is 
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 system = 'system_example' # str | The system type where the data is requested from
 
 try:
@@ -562,23 +562,23 @@ The Historic equity method returns a time-series of the periodic equity of a use
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 system = 'system_example' # str | The system type where the data is requested from
 period = 'period_example' # str | The Requested Period
 min_date = 'min_date_example' # str | Minimum Date
@@ -628,23 +628,23 @@ The Order returns all the open exit orders in the system <br><br> It is importan
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 system = 'system_example' # str | The system type where the data is requested from
 
 try:
@@ -686,23 +686,23 @@ The Instruments fees returns the rollover fees that are charged in the system  <
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 system = 'system_example' # str | The trading system. 
 instrument_ids = 'instrument_ids_example' # str | Optional list of instrument ids. The list should be comma delimited (optional)
 ocp_apim_subscription_key = 'ocp_apim_subscription_key_example' # str | subscription key in header (optional)
@@ -748,23 +748,23 @@ The Instruments metadata returns the trading metadata on assets
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 system = 'system_example' # str | The trading system. 
 instrument_ids = 'instrument_ids_example' # str | Optional list of instrument ids. The list should be comma delimited (optional)
 subscription_key = 'subscription_key_example' # str | subscription key in url (optional)
@@ -812,23 +812,23 @@ The Order returns all the open orders in the system <br><br> It is important to 
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 system = 'system_example' # str | The system type where the data is requested from
 
 try:
@@ -870,23 +870,23 @@ The Trade History method returns closed trades of the user according to the syst
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 system = 'system_example' # str | The system type where the data is requested from
 min_date = 'min_date_example' # str | Minimum date for the historic trades
 page = 56 # int | Requested Page
@@ -940,23 +940,23 @@ The Trade method returns the open trades of the user according to the system <br
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 system = 'system_example' # str | The system type where the data is requested from
 subscription_key = 'subscription_key_example' # str | subscription key in url (optional)
 ocp_apim_subscription_key = 'ocp_apim_subscription_key_example' # str | subscription key in header (optional)
@@ -1002,23 +1002,23 @@ The Add Entry Order allows creation of an entry order in the system. There are s
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 system = 'system_example' # str | The system type where the data is requested from
 body = NULL # object | The body defines the actual order
 

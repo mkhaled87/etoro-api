@@ -1,4 +1,4 @@
-# swagger_client.DefaultApi
+# etoro_api.DefaultApi
 
 All URIs are relative to *https://api.etoro.com/Discover/V1*
 
@@ -18,23 +18,23 @@ The discovery metadata API returns the values which can be queried
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 
 try:
     # MetaData
@@ -72,23 +72,23 @@ The search API allows you to filter customers according to periodic aggregate da
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 period = 'SixMonthsAgo' # str | The requested period (default to SixMonthsAgo)
 page = 1.2 # float | The requested page number. Defaults to 1 (optional)
 page_size = 1.2 # float | The requested page size (optional)

@@ -6,8 +6,10 @@ API_spec=./specs
 
 
 # generate the api
+rm -rf ../python/
+rm -rf ../csharp/
 for i in "${API_files[@]}"
 do
-	swagger-codegen generate -i $API_spec/$i.json -l python -o ../python/etoro$i
+	swagger-codegen generate -i $API_spec/$i.json -l python -o ../python/etoro$i -c python.cfg
 	swagger-codegen generate -i $API_spec/$i.json -l csharp -o ../csharp/etoro$i
 done

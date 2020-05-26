@@ -1,4 +1,4 @@
-# swagger_client.DefaultApi
+# etoro_api.DefaultApi
 
 All URIs are relative to *https://api.etoro.com/API/User/V1*
 
@@ -32,23 +32,23 @@ The trading history aggregates retrieves aggregate data on the trading of a cust
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 username = 'username_example' # str | The username which we want to get the aggregate data on
 period = 'SixMonthsAgo' # str | The name of the period which we would like to get aggregate data on. The possible values are according to the period name in the metadata <a href=\"docs/services/5784e8446361c811ccfdf536/operations/578501516361c811ccfdf53c\">StatsPeriods API</a> (optional) (default to SixMonthsAgo)
 
@@ -92,23 +92,23 @@ The API returns the daily number of copiers of a user
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 username = 'username_example' # str | The username which I would like to get the copier history
 min_date = 'min_date_example' # str | The minimum date for the response. The date should be formatted as YYYY/MM/DD (optional)
 
@@ -152,23 +152,23 @@ The copy simulation retrieves periodic copy simulation data including daily equi
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 username = 'username_example' # str | The username to simulate
 period = 'SixMonthsAgo' # str | The name of the period which we would like to get simulation data on. The possible values are according to the period name in the metadata <a href=\"docs/services/5784e8446361c811ccfdf536/operations/578501516361c811ccfdf53c\">StatsPeriods API</a> (default to SixMonthsAgo)
 asset_allocation = true # bool | Return information on daily asset allocation (optional)
@@ -214,23 +214,23 @@ The Daily Gain API provides daily gains of users either as a time series or an a
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 username = 'username_example' # str | The username which we would like to get the gain information
 type = 'Daily' # str | Type of data returned (default to Daily)
 min_date = 'min_date_example' # str | The minimum date of the query. The date should be formatted as YYYY-MM-DD
@@ -278,23 +278,23 @@ This API retrieves the monthly and yearly gains of a user
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 username = 'username_example' # str | The username which we would like to get the gain information
 
 try:
@@ -336,23 +336,23 @@ This API returns the number of live copiers by country
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 username = 'username_example' # str | The username which we are trying to get the copiers
 
 try:
@@ -394,23 +394,23 @@ The Risk Score Live API call returns data on the live customer risk score
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 username = 'username_example' # str | The username which we would like to get the risk score information
 
 try:
@@ -452,23 +452,23 @@ This API retrieves the historical risk score of a customer
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 username = 'username_example' # str | The username which we would like to get the risk score information
 min_date = 'min_date_example' # str | The minimum date to return information (optional)
 
@@ -512,23 +512,23 @@ The API returns discovery values for a specific user
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 username = 'username_example' # str | 
 period = 'SixMonthsAgo' # str | Requested Period (optional) (default to SixMonthsAgo)
 
@@ -572,23 +572,23 @@ The API returns the number of followers of a user
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 username = 'username_example' # str | The username which we want to query
 
 try:
@@ -630,23 +630,23 @@ This API returns general information on a user
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 username = 'username_example' # str | The username which we would like to get the information
 
 try:
@@ -688,23 +688,23 @@ The portfolio summary aggregates the live portfolio of a user by manually traded
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 username = 'username_example' # str | The requested username
 
 try:
@@ -744,23 +744,23 @@ VisualPortfolio
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 username = 'username_example' # str | The requested username
 top = 1.2 # float | The number of results to return
 
@@ -804,23 +804,23 @@ This API returns discovery values for multiple users
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 usernames = 'usernames_example' # str | A comma delimited list of usernames which I would like to get discovery data
 period = 'SixMonthsAgo' # str | Requested Period (default to SixMonthsAgo)
 fields = 'fields_example' # str | A comma delimited list of fields which should be returned (optional)
@@ -866,23 +866,23 @@ This API returns general information on a list of users
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 user_names = 'user_names_example' # str | A comma delimited list of usernames (optional)
 
 try:
@@ -924,23 +924,23 @@ This API returns the visual portfolio on a list of users
 ```python
 from __future__ import print_function
 import time
-import swagger_client
-from swagger_client.rest import ApiException
+import etoro_api
+from etoro_api.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = swagger_client.Configuration()
+configuration = etoro_api.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = swagger_client.DefaultApi(swagger_client.ApiClient(configuration))
+api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
 user_names = 'user_names_example' # str | A comma delimited list of usernames (optional)
 
 try:
