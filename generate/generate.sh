@@ -14,8 +14,6 @@ do
 	rm -rf ../$j/
 	for i in "${API_files[@]}"
 	do
-		swagger-codegen generate -i $API_spec/$i.json -l $j -o ../$j/etoro$i -DprojectName=etoro-$i,packageName=etoro_$i,packageUrl=$PKG_URL,packageVersion=$PKG_VER > /dev/null
-
-		
+		swagger-codegen generate -i $API_spec/$i.json -l $j -o ../$j/etoro-$i -DprojectName=etoro-$i,packageName=etoro_$i,packageUrl=$PKG_URL,packageVersion=$PKG_VER > /dev/null
 	done
 done
