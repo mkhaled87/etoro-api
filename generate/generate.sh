@@ -1,15 +1,21 @@
 #!/bin/sh
 
 # the apis
-API_files=( Discovery Metadata Rates System Trading User )
+PKG_URL="https://github.com/mkhaled87/etoro-api/"
+PKG_VER=0.6.0
+LANGS=( python )
+API_files=( discovery metadata rates system trading user )
 API_spec=./specs
 
 
 # generate the api
-rm -rf ../python/
-rm -rf ../csharp/
-for i in "${API_files[@]}"
+for j in "${LANGS[@]}"
 do
-	swagger-codegen generate -i $API_spec/$i.json -l python -o ../python/etoro$i -c python.cfg
-	swagger-codegen generate -i $API_spec/$i.json -l csharp -o ../csharp/etoro$i
+	rm -rf ../$j/
+	for i in "${API_files[@]}"
+	do
+		swagger-codegen generate -i $API_spec/$i.json -l $j -o ../$j/etoro$i -DprojectName=etoro-$i,packageName=etoro_$i,packageUrl=$PKG_URL,packageVersion=$PKG_VER > /dev/null
+
+		
+	done
 done

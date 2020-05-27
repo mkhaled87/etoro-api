@@ -1,4 +1,4 @@
-# etoro_api.DefaultApi
+# etoro_metadata.DefaultApi
 
 All URIs are relative to *https://api.etoro.com/Metadata/V1*
 
@@ -23,23 +23,23 @@ AssetClasses
 ```python
 from __future__ import print_function
 import time
-import etoro_api
-from etoro_api.rest import ApiException
+import etoro_metadata
+from etoro_metadata.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = etoro_api.Configuration()
+configuration = etoro_metadata.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = etoro_api.Configuration()
+configuration = etoro_metadata.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
+api_instance = etoro_metadata.DefaultApi(etoro_metadata.ApiClient(configuration))
 
 try:
     # AssetClasses
@@ -77,23 +77,23 @@ The API returns the intervals in which you may retrieve historical price candles
 ```python
 from __future__ import print_function
 import time
-import etoro_api
-from etoro_api.rest import ApiException
+import etoro_metadata
+from etoro_metadata.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = etoro_api.Configuration()
+configuration = etoro_metadata.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = etoro_api.Configuration()
+configuration = etoro_metadata.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
+api_instance = etoro_metadata.DefaultApi(etoro_metadata.ApiClient(configuration))
 
 try:
     # CandlePeriods
@@ -131,23 +131,23 @@ Countries
 ```python
 from __future__ import print_function
 import time
-import etoro_api
-from etoro_api.rest import ApiException
+import etoro_metadata
+from etoro_metadata.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = etoro_api.Configuration()
+configuration = etoro_metadata.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = etoro_api.Configuration()
+configuration = etoro_metadata.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
+api_instance = etoro_metadata.DefaultApi(etoro_metadata.ApiClient(configuration))
 
 try:
     # Countries
@@ -185,23 +185,23 @@ The API returns a vector of all the exchanges defined in the system.  <br><br> <
 ```python
 from __future__ import print_function
 import time
-import etoro_api
-from etoro_api.rest import ApiException
+import etoro_metadata
+from etoro_metadata.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = etoro_api.Configuration()
+configuration = etoro_metadata.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = etoro_api.Configuration()
+configuration = etoro_metadata.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
+api_instance = etoro_metadata.DefaultApi(etoro_metadata.ApiClient(configuration))
 
 try:
     # Exchanges
@@ -239,23 +239,23 @@ Instruments
 ```python
 from __future__ import print_function
 import time
-import etoro_api
-from etoro_api.rest import ApiException
+import etoro_metadata
+from etoro_metadata.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = etoro_api.Configuration()
+configuration = etoro_metadata.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = etoro_api.Configuration()
+configuration = etoro_metadata.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
+api_instance = etoro_metadata.DefaultApi(etoro_metadata.ApiClient(configuration))
 instrument_ids = 'instrument_ids_example' # str | Comma separated list of instrument IDs which will be retrieved. If this is omitted all the instruments which are defined in the system will be returned (optional)
 
 try:
@@ -297,23 +297,23 @@ Sectors
 ```python
 from __future__ import print_function
 import time
-import etoro_api
-from etoro_api.rest import ApiException
+import etoro_metadata
+from etoro_metadata.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = etoro_api.Configuration()
+configuration = etoro_metadata.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = etoro_api.Configuration()
+configuration = etoro_metadata.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
+api_instance = etoro_metadata.DefaultApi(etoro_metadata.ApiClient(configuration))
 
 try:
     # Sectors
@@ -351,23 +351,23 @@ The API returns the predefined periods used for aggregate data
 ```python
 from __future__ import print_function
 import time
-import etoro_api
-from etoro_api.rest import ApiException
+import etoro_metadata
+from etoro_metadata.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = etoro_api.Configuration()
+configuration = etoro_metadata.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = etoro_api.Configuration()
+configuration = etoro_metadata.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
+api_instance = etoro_metadata.DefaultApi(etoro_metadata.ApiClient(configuration))
 
 try:
     # StatsPeriods

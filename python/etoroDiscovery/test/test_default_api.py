@@ -14,9 +14,9 @@ from __future__ import absolute_import
 
 import unittest
 
-import etoro_api
+import etoro_discovery
 from api.default_api import DefaultApi  # noqa: E501
-from etoro_api.rest import ApiException
+from etoro_discovery.rest import ApiException
 
 
 class TestDefaultApi(unittest.TestCase):

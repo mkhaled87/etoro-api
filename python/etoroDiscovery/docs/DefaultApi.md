@@ -1,4 +1,4 @@
-# etoro_api.DefaultApi
+# etoro_discovery.DefaultApi
 
 All URIs are relative to *https://api.etoro.com/Discover/V1*
 
@@ -18,23 +18,23 @@ The discovery metadata API returns the values which can be queried
 ```python
 from __future__ import print_function
 import time
-import etoro_api
-from etoro_api.rest import ApiException
+import etoro_discovery
+from etoro_discovery.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = etoro_api.Configuration()
+configuration = etoro_discovery.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = etoro_api.Configuration()
+configuration = etoro_discovery.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
+api_instance = etoro_discovery.DefaultApi(etoro_discovery.ApiClient(configuration))
 
 try:
     # MetaData
@@ -72,23 +72,23 @@ The search API allows you to filter customers according to periodic aggregate da
 ```python
 from __future__ import print_function
 import time
-import etoro_api
-from etoro_api.rest import ApiException
+import etoro_discovery
+from etoro_discovery.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = etoro_api.Configuration()
+configuration = etoro_discovery.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = etoro_api.Configuration()
+configuration = etoro_discovery.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
+api_instance = etoro_discovery.DefaultApi(etoro_discovery.ApiClient(configuration))
 period = 'SixMonthsAgo' # str | The requested period (default to SixMonthsAgo)
 page = 1.2 # float | The requested page number. Defaults to 1 (optional)
 page_size = 1.2 # float | The requested page size (optional)

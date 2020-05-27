@@ -1,4 +1,4 @@
-# etoro_api.DefaultApi
+# etoro_rates.DefaultApi
 
 All URIs are relative to *https://api.etoro.com/*
 
@@ -19,23 +19,23 @@ History/Candles
 ```python
 from __future__ import print_function
 import time
-import etoro_api
-from etoro_api.rest import ApiException
+import etoro_rates
+from etoro_rates.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = etoro_api.Configuration()
+configuration = etoro_rates.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = etoro_api.Configuration()
+configuration = etoro_rates.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
+api_instance = etoro_rates.DefaultApi(etoro_rates.ApiClient(configuration))
 candle_period_id = 1.2 # float | The internal ID of the candle interval. For the full values see the metadata <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5785c91b6361c80d884cfce9\">Candle Periods API</a>
 instrument_id = 1.2 # float | The instrument ID which we want to retrieve the candles. For the full list of instruments see the metadata <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784f6ee6361c811ccfdf53b\">Instruments API</a>
 top = 1.2 # float | The number of candles to return. If omitted we will return 100 candles (optional)
@@ -83,23 +83,23 @@ History/ClosingRate
 ```python
 from __future__ import print_function
 import time
-import etoro_api
-from etoro_api.rest import ApiException
+import etoro_rates
+from etoro_rates.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = etoro_api.Configuration()
+configuration = etoro_rates.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = etoro_api.Configuration()
+configuration = etoro_rates.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
+api_instance = etoro_rates.DefaultApi(etoro_rates.ApiClient(configuration))
 instrument_ids = 'instrument_ids_example' # str | A comma delimited list of instrument ids. For the full list of instrument IDs refer to the <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784f6ee6361c811ccfdf53b\">Instruments API</a> (optional)
 
 try:
@@ -141,23 +141,23 @@ This API returns live rates
 ```python
 from __future__ import print_function
 import time
-import etoro_api
-from etoro_api.rest import ApiException
+import etoro_rates
+from etoro_rates.rest import ApiException
 from pprint import pprint
 
 # Configure API key authorization: apiKeyHeader
-configuration = etoro_api.Configuration()
+configuration = etoro_rates.Configuration()
 configuration.api_key['Ocp-Apim-Subscription-Key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['Ocp-Apim-Subscription-Key'] = 'Bearer'
 # Configure API key authorization: apiKeyQuery
-configuration = etoro_api.Configuration()
+configuration = etoro_rates.Configuration()
 configuration.api_key['subscription-key'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['subscription-key'] = 'Bearer'
 
 # create an instance of the API class
-api_instance = etoro_api.DefaultApi(etoro_api.ApiClient(configuration))
+api_instance = etoro_rates.DefaultApi(etoro_rates.ApiClient(configuration))
 instrument_ids = 'instrument_ids_example' # str | A comma delimited list of instrument ids. For the full list of instrument IDs refer to the <a href=\"/docs/services/5784e8446361c811ccfdf536/operations/5784f6ee6361c811ccfdf53b\">Instruments API</a> (optional)
 
 try:
