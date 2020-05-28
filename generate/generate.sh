@@ -11,9 +11,12 @@ API_spec=./specs
 # generate the api
 for j in "${LANGS[@]}"
 do
-	rm -rf ../$j/
 	for i in "${API_files[@]}"
 	do
-		swagger-codegen generate -i $API_spec/$i.json -l $j -o ../$j/etoro-$i -DprojectName=etoro-$i,packageName=etoro_$i,packageUrl=$PKG_URL,packageVersion=$PKG_VER > /dev/null
+		# Python ?
+		if [ "$j" == "python" ]; then
+			rm -rf ../$j/etoro-$i/
+			swagger-codegen generate -i $API_spec/$i.json -l $j -o ../$j/etoro-$i -DprojectName=etoro-$i,packageName=etoro_$i,packageUrl=$PKG_URL,packageVersion=$PKG_VER > /dev/null
+		fi
 	done
 done
