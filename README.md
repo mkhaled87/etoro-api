@@ -15,3 +15,6 @@ Here you can find how to install it:
 https://github.com/swagger-api/swagger-codegen
 
 Then, modify and run the [generation script](/generate/generate.sh).
+
+
+**For donations (BTC)**: 1MKHALEDqXhBzqa86hj8FbDGW5HvDdA5Tq
